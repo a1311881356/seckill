@@ -1,0 +1,91 @@
+spring:
+  #druid连接池配置
+  datasource:
+    url: jdbc:mysql://47.110.47.203:3306/seckill?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: Yuren1+1=2
+    #按照最新官方提示支持将com.mysql.jdbc.Driver  改为  com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 1000
+    initialSize: 100
+    maxWait: 60000
+    minIdle: 500
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  rabbitmq:
+    host: 47.110.47.203
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        #消费者数量
+        concurrency: 10
+        max-concurrency: 10
+        #消费者每次从队列获取的数量
+        prefetch: 1
+        #配置消费者消费失败重新压入队列
+        default-requeue-rejected: true
+        #消费者自动启动
+        auto-startup: true
+    template:
+      retry:
+        #启用发送重试，加入队列失败启用重试
+        enabled: true
+        #重试时间间隔
+        initial-interval: 1000
+        #最多重试数量
+        max-attempts: 3
+        #最大重试时间间隔
+        max-interval: 10000
+        multiplier: 1.0
+  thymeleaf:
+    #页面热加载
+    cache: false
+    #开启thymeleaf
+    enabled: true
+    #下面两个都是默认配置，可以不加的
+    prefix: classpath:templates/
+    suffix: .html
+    #类型mode设置层HTML5
+    mode: LEGACYHTML5
+  #static资源配置
+  resources:
+    #启用静态资源处理，默认就是开启的
+    add-mappings: true
+    #静态资源查找路径，可以配置多个路径
+    static-locations: classpath:/static/
+    cache:
+      #指示浏览器因该缓存当前页面多久，配置缓存一小时，配置了这个后浏览器在第一次访问完后即使点击刷新页面也不会请求服务器，只会读本读的缓存，谷歌浏览器不是这样，火狐浏览器可以
+      period: 3600
+    chain:
+      cache: true
+      enabled: true
+      #启用压缩
+      compressed: true
+      html-application-cache: true
+mybatis:
+    mapperLocations: classpath:pers/lbw/seckill_1/dao/*.xml
+    type-aliases-package: pers.lbw.seckill_1.domain
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 3000
+#redis连接池配置
+redis:
+  host: 47.110.47.203
+  port: 6379
+  timeout: 300
+  password: lbw_pass
+  poolMaxTotal: 10000
+  poolMaxIdle: 1000
+  poolMaxWait: 1000
