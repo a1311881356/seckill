@@ -7,7 +7,7 @@ public class MD5Util {
 		return DigestUtils.md5Hex(src);
 	}
 	
-	//第一次MD5加密是由网页的js加密的，这里只是演示过程
+	//第一次MD5加密是由网页的js加密的，这里只是方便压测
 	//inputPass是用户输入的密码
 	public static String FirstMD5(String inputPwd) {
 		//可能的一种实现是：

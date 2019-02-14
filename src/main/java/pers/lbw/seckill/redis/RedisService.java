@@ -1,7 +1,10 @@
 package pers.lbw.seckill.redis;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.alibaba.fastjson.JSON;
 
@@ -9,12 +12,13 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 @Service
+@Validated
 public class RedisService {
 
 	@Autowired
 	JedisPool jedisPool;
 
-	public <T> T get(RedisHelper rh, String key, Class<T> clazz) {
+	public <T> T get(@NotNull RedisHelper rh, String key, Class<T> clazz) {
 		if (clazz == null||key==null||rh==null) {
 			return null;
 		}

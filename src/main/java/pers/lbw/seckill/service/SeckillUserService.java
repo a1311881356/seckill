@@ -21,7 +21,6 @@ import pers.lbw.seckill.result.CodeMsg;
 public class SeckillUserService {
 	public static final String COOKIE_NAME_TOKEN="token";
 	
-	
 	@Autowired
 	SeckillUserDao sud;
 	

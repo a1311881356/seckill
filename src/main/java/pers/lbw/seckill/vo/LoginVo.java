@@ -9,7 +9,7 @@ import pers.lbw.seckill.validator.IsMobile;
 public class LoginVo {
 	
 	@NotNull
-	@IsMobile//我们自定义的验证器
+	@IsMobile//自定义的验证器
 	private String mobile;
 	
 	@NotNull

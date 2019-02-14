@@ -16,12 +16,12 @@ public class CodeMsg {
 	public static CodeMsg ACCESS_LIMIT_REACHED = new CodeMsg(500103, "访问太频繁了");
 
 	// 登陆模块 5002xx
-	public static CodeMsg SESSION_ERROR = new CodeMsg(500210, "Session不存在或者实效");
-	public static CodeMsg PASSWORD_EMPTY = new CodeMsg(500211, "密码不能为空");
-	public static CodeMsg MOBILE_EMPTY = new CodeMsg(500212, "手机号不能为空");
-	public static CodeMsg MOBILE_ERROR = new CodeMsg(500213, "手机号错误");
-	public static CodeMsg USER_NO_EXIST = new CodeMsg(500213, "手机号不存在");
-	public static CodeMsg PASSWORD_ERROR = new CodeMsg(500213, "密码错误");
+	public static CodeMsg SESSION_ERROR = new CodeMsg(500201, "Session不存在或者实效");
+	public static CodeMsg PASSWORD_EMPTY = new CodeMsg(500202, "密码不能为空");
+	public static CodeMsg MOBILE_EMPTY = new CodeMsg(500203, "手机号不能为空");
+	public static CodeMsg MOBILE_ERROR = new CodeMsg(500204, "手机号错误");
+	public static CodeMsg USER_NO_EXIST = new CodeMsg(500205, "手机号不存在");
+	public static CodeMsg PASSWORD_ERROR = new CodeMsg(500206, "密码错误");
 
 	// 商品模块 5003xx
 
