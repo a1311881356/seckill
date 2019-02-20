@@ -38,11 +38,8 @@ public class LoginController {
 	
 	@RequestMapping("doLogin")
 	@ResponseBody
-	Result<String> doLogin(@Valid LoginVo lv,HttpServletResponse resp,BindingResult  bindingResult) {
+	Result<String> doLogin(@Valid LoginVo lv,HttpServletResponse resp) {
 		logger.info(lv.toString());
-		if (bindingResult.hasErrors()) {
-            List<ObjectError> errorList = bindingResult.getAllErrors();
-		}
 		String token=sus.login(resp,lv);
 		return Result.success(token);
 	}

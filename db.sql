@@ -21,7 +21,7 @@ select 1
 
 CREATE TABLE goods (
 	id bigint(20) NOT NULL AUTO_INCREMENT COMMENT '商 品ID',
-	goods_name varchar(16) DEFAULT NULL COMMENT '商品名称备',
+	goods_name varchar(16) DEFAULT NULL COMMENT '商品名称',
 	goods_title varchar(64) DEFAULT NULL COMMENT '商品标题',
 	goods_img varchar(64) DEFAULT NULL COMMENT '商品图片',
 	goods_detail longtext COMMENT '商品的详情介绍',

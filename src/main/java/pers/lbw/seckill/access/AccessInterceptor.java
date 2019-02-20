@@ -21,7 +21,7 @@ import pers.lbw.seckill.result.Result;
 import pers.lbw.seckill.service.SeckillUserService;
 
 @Service
-//范文拦截器
+//访问拦截器
 public class AccessInterceptor extends HandlerInterceptorAdapter{
 	
 	@Autowired
